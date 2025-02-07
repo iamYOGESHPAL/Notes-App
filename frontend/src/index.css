@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2b85ff;
+}
+
+@layer base {
+  html {
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    background-color: #fdfeff;
+    overflow-x: hidden;
+  }
+  .app {
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+@layer components {
+  .input-box {
+    @apply border-[1.5px] border-gray-300 bg-transparent mb-4 px-5 py-3 rounded w-full text-sm outline-none;
+  }
+  .btn-primary {
+    @apply bg-primary hover:bg-blue-600 my-1 p-2 rounded w-full text-sm text-white;
+  }
+  .icon-btn {
+    @apply text-[1rem] text-slate-300 hover:text-primary cursor-pointer;
+  }
+  .input-label {
+    @apply text-slate-400 text-xs;
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-4xl;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-xs;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
