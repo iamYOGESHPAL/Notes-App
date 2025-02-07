@@ -1,0 +1,5 @@
+.app {
+  background-image: url("./assets/cool-background.svg");
+  background-repeat: repeat;
+  background-size: 120vw;
+}
