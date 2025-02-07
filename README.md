@@ -1,1 +1,1 @@
-# Notes App - MERN Stack
+## Notes App - MERN Stack
