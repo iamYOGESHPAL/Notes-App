@@ -1,9 +1,7 @@
 require("dotenv").config();
 
-const config = require("./config.json");
 const mongoose = require("mongoose");
-
-mongoose.connect(config.connectionString);
+mongoose.connect(process.env.MONGODB_URI);
 
 const User = require("./models/user.model");
 const Note = require("./models/note.model");
@@ -45,7 +43,7 @@ app.post("/create-account", async (req, res) => {
   const user = new User({ fullName, email, password });
   await user.save();
 
-  const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET, {
+  const accessToken = jwt.sign({ user }, process.env.JWT_SECRET_KEY, {
     expiresIn: "36000m",
   });
 
@@ -72,7 +70,7 @@ app.post("/login", async (req, res) => {
     return res.status(404).send({ error: true, message: "User not found" });
   }
   if (user.password === password && user.email === email) {
-    const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET, {
+    const accessToken = jwt.sign({ user }, process.env.JWT_SECRET_KEY, {
       expiresIn: "36000m",
     });
     return res.json({
